@@ -70,6 +70,8 @@ const MeetingTypeList = () => {
     }
   };
 
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
+
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
       <HomeCard
@@ -130,8 +132,8 @@ const MeetingTypeList = () => {
               timeFormat="HH:mm"
               timeIntervals={15}
               timeCaption="time"
-
-              //3:13
+              dateFormat="MMMM d, yyyy h:mm aa"
+              className="w-full rounded bg-dark-3 p-2 focus:outline-none"
             />
           </div>
         </MeetingModal>
@@ -143,8 +145,8 @@ const MeetingTypeList = () => {
           className="text-center"
           buttonText="Copy Meeting Link"
           handleClick={() => {
-            // navigator.clipboard.writeText(meetingLink);
-            // toast({ title: "Link copied to clipboard" });
+            navigator.clipboard.writeText(meetingLink);
+            toast({ title: "Link copied to clipboard" });
           }}
           image="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"
