@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Connect Up",
   description: "Meet and connect with your friends",
   icons: {
-    icon: "/icons/logo.svg",
+    icon: "./favicon.ico",
   },
 };
 
