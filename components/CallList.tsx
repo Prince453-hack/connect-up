@@ -85,12 +85,21 @@ const CallList = ({ type }: Props) => {
                 : "/icons/recordings.svg"
             }
             title={
-              (meeting as Call).state?.custom.description.substring(0, 25) ||
-              "No Description"
+              (meeting as Call).state?.custom?.description?.substring(0, 25) ||
+              meeting?.filename?.substring(0, 20) ||
+              "Personal Room"
             }
             date={
-              (meeting as Call).state?.startsAt?.toLocaleString() ||
-              meeting.start_time.toLocaleString()
+              (meeting as Call).state?.startsAt?.toLocaleString("en-US") ||
+              new Date(meeting.start_time).toLocaleString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                timeZoneName: "short",
+              })
             }
             isPreviousMeeting={type === "ended"}
             buttonIcon1={type === "recording" ? "/icons/play.svg" : undefined}
