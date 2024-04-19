@@ -64,7 +64,7 @@ const CallList = ({ type }: Props) => {
     };
 
     if (type === "recording") fetchRecording();
-  }, [type, getRecordings]);
+  }, [type, getRecordings, toast]);
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
@@ -90,8 +90,8 @@ const CallList = ({ type }: Props) => {
               "Personal Room"
             }
             date={
-              (meeting as Call).state?.startsAt?.toLocaleString("en-US") ||
-              new Date(meeting.start_time).toLocaleString("en-US", {
+              meeting.state?.startsAt?.toLocaleString("en-IN") ||
+              new Date(meeting.start_time).toLocaleString("en-IN", {
                 year: "numeric",
                 month: "short",
                 day: "2-digit",
