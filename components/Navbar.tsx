@@ -16,7 +16,7 @@ const Navbar = () => {
           className="max-sm:size-10"
         />
         <p className="text-[26px] text-white font-extrabold max-sm:hidden">
-          Connect Up
+          Team Wave
         </p>
       </Link>
 
